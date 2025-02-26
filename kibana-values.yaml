@@ -1,0 +1,11 @@
+resources:
+  requests:
+    cpu: "300m"
+    memory: "800Mi"
+  limits:
+    cpu: "1000m"
+    memory: "2Gi"
+
+service:
+  type: NodePort
+  port: 5601

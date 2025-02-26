@@ -1,0 +1,19 @@
+replicas: 1
+minimumMasterNodes: 1
+
+resources:
+  requests:
+    cpu: "800m"
+    memory: "2Gi"
+  limits:
+    cpu: "1000m"
+    memory: "2Gi"
+
+volumeClaimTemplate:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 20Gi
+
+persistence:
+  enabled: true
