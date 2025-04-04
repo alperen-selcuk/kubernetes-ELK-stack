@@ -1,13 +1,11 @@
 replicas: 1
-minimumMasterNodes: 1
 
 resources:
   requests:
-    cpu: "800m"
-    memory: "2Gi"
+    cpu: "1"
+    memory: "1Gi"
   limits:
-    cpu: "1000m"
-    memory: "2Gi"
+    memory: "3Gi"
 
 volumeClaimTemplate:
   accessModes: ["ReadWriteOnce"]
@@ -17,3 +15,11 @@ volumeClaimTemplate:
 
 persistence:
   enabled: true
+
+esConfig:
+  elasticsearch.yml: |
+    cluster.name: "elasticsearch"
+    node.name: "elasticsearch-master-0"
+    network.host: 0.0.0.0
+    discovery.seed_hosts: ["elasticsearch-master-0"]
+    cluster.initial_master_nodes: ["elasticsearch-master-0"]
